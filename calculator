@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+// My calculator
+int main()
+{
+    char sign, choice;
+    int a, b, c;
+    do {
+        printf("What do you want to operate (*, -, +, /)? ");
+        printf("\nEnter the sign: ");
+        scanf(" %c", &sign);  
+
+        printf("\nEnter the first number: ");
+        scanf("%d", &a);
+        printf("\nEnter the second number: ");
+        scanf("%d", &b);
+
+        switch (sign) {
+            case '*':
+                c = a * b;
+                printf("\nThe multiplication of %d and %d is %d", a, b, c);
+                break;
+
+            case '-':
+                c = a - b;
+                printf("\nThe subtraction of %d and %d is %d", a, b, c);
+                break;
+
+            case '+':
+                c = a + b;
+                printf("\nThe sum of %d and %d is %d", a, b, c);
+                break;
+
+            case '/':
+                if (b != 0) {
+                    c = a / b;
+                    printf("\nThe division of %d and %d is %d", a, b, c);
+                } else {
+                    printf("\nDivision by zero is not allowed.");
+                }
+                break;
+
+            default:
+                printf("\nInvalid operation sign.");
+        }
+
+        printf("\nDo you want to try once again? (y/n): ");
+        scanf(" %c", &choice);
+
+    } while (choice == 'y' || choice == 'Y');
+
+    return 0;
+}
